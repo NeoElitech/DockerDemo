@@ -9,7 +9,6 @@ pipeline {
                 script {
                     def myImage = docker.image('dockerdemo')
                     myImage.withRun('-v D:\\ELITech\\Jenkins:D:\\ELITech\\Jenkins') { c ->
-                        echo "Build">Build.txt
                     }
                 }
             }
@@ -19,7 +18,6 @@ pipeline {
                 script {
                     def myImage = docker.image('dockerdemo')
                     myImage.withRun('-v D:\\ELITech\\Jenkins:D:\\ELITech\\Jenkins') { c ->
-                        echo "TEST">TEST.txt
                     }
                 }
             }
