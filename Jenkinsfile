@@ -3,8 +3,14 @@ node {
         checkout scm
     }
     stage('Build') {
-        docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
-            powershell "dotnet msbuild -h"
+        def tasks = [:]
+        for (int i = 0; i < 20; i++) {
+            tasks["T_${testingId}"] = {
+                docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
+                    powershell "HELOOO"
+                }
+            }
+            parallel tasks
         }
     }
 }
