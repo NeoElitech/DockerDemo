@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     def myImage = docker.image('dockerdemo')
-                    myImage.inside("-v C/ProgramData/Jenkins/.jenkins/workspace/DockerDemo:/workspace") {
+                    myImage.inside() {
                         powershell 'dotnet --version'
                     }
                 }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     def myImage = docker.image('dockerdemo')
-                    myImage.inside("-v C/ProgramData/Jenkins/.jenkins/workspace/DockerDemo:/workspace") {
+                    myImage.inside() {
                         powershell 'dotnet --version'
                     }
                 }
