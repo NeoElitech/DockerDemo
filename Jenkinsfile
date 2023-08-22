@@ -2,15 +2,23 @@ pipeline {
     agent none
     stages {
         stage('Build') {
-            agent { dockerfile true }
             steps {
-                powershell 'dotnet --version'
+                script {
+                    def myImage = docker.image('dockerdemo')
+                    myImage.inside("-v ${WORKSPACE}:/workspace") {
+                        powershell 'dotnet --version'
+                    }
+                }
             }
         }
         stage('Test') {
-            agent { dockerfile true }
             steps {
-                powershell 'dotnet --version'
+                script {
+                    def myImage = docker.image('dockerdemo')
+                    myImage.inside("-v ${WORKSPACE}:/workspace") {
+                        powershell 'dotnet --version'
+                    }
+                }
             }
         }
     }
