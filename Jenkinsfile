@@ -5,7 +5,7 @@ node {
     stage('Build') {
         def tasks = [:]
         for (int i = 0; i < 20; i++) {
-            tasks["T_${testingId}"] = {
+            tasks["T_${i}"] = {
                 docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
                     powershell "HELOOO"
                 }
