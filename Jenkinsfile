@@ -10,8 +10,8 @@ node {
                     powershell "ECHO Hello_From_T"
                 }
             }
-            parallel tasks
         }
+        parallel tasks
     }
 }
 
