@@ -4,7 +4,7 @@ node {
     }
     stage('Build') {
         docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
-            powershell """dir 'C:\\Program Files'"""
+            powershell """dir /s /b 'C:\\Program Files'"""
         }
     }
 }
