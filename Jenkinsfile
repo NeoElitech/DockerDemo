@@ -2,9 +2,7 @@ pipeline {
     agent none
     stages {
         stage('Test') {
-            agent {
-                docker { dockerfile true }
-            }
+            agent { dockerfile true }
             steps {
                 powershell 'dotnet --version'
             }
