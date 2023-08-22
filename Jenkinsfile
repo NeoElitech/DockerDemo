@@ -3,15 +3,9 @@ node {
         checkout scm
     }
     stage('Build') {
-        def tasks = [:]
-        for (int i = 0; i < 5; i++) {
-            tasks["T_${i}"] = {
-                docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside("-e tid=${i}") {
-                    powershell "Get-ChildItem Env:"
-                }
-            }
+        docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside("-e tid=${i}") {
+            powershell "dotnet test -h"
         }
-        parallel tasks
     }
 }
 
