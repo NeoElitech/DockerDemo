@@ -4,10 +4,10 @@ node {
     }
     stage('Build') {
         def tasks = [:]
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 5; i++) {
             tasks["T_${i}"] = {
-                docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
-                    powershell "ECHO Hello_From_T"
+                docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside("-e tid=${i}") {
+                    powershell "Get-ChildItem Env:"
                 }
             }
         }
