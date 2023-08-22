@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     def myImage = docker.image('dockerdemo')
-                    myImage.withRun('-v D:\\ELITech\\Jenkins:D:\\ELITech\\Jenkins') { c ->
+                    myImage.withRun() { c ->
                     }
                 }
             }
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     def myImage = docker.image('dockerdemo')
-                    myImage.withRun('-v D:\\ELITech\\Jenkins:D:\\ELITech\\Jenkins') { c ->
+                    myImage.withRun() { c ->
                     }
                 }
             }
