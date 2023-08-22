@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'node:16-alpine' }
+        docker { image 'mcr.microsoft.com/dotnet/framework/sdk:4.8.1' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                echo "HELOOOOOOO"
             }
         }
     }
