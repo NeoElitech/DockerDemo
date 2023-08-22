@@ -9,7 +9,7 @@ pipeline {
                 script {
                     def myImage = docker.image('dockerdemo')
                     myImage.inside() {
-                        powershell 'dotnet --version'
+                        echo "Build">Build.txt
                     }
                 }
             }
@@ -19,7 +19,7 @@ pipeline {
                 script {
                     def myImage = docker.image('dockerdemo')
                     myImage.inside() {
-                        powershell 'dotnet --version'
+                        echo "TEST">TEST.txt
                     }
                 }
             }
