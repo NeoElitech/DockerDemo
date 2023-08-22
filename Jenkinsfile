@@ -1,11 +1,14 @@
 pipeline {
     agent none
+    environment {
+        WORKSPACE = pwd()
+    }
     stages {
         stage('Build') {
             steps {
                 script {
                     def myImage = docker.image('dockerdemo')
-                    myImage.inside("-v ${WORKSPACE}:/workspace") {
+                    myImage.inside("-v ${env.WORKSPACE}:/workspace") {
                         powershell 'dotnet --version'
                     }
                 }
@@ -15,7 +18,7 @@ pipeline {
             steps {
                 script {
                     def myImage = docker.image('dockerdemo')
-                    myImage.inside("-v ${WORKSPACE}:/workspace") {
+                    myImage.inside("-v ${env.WORKSPACE}:/workspace") {
                         powershell 'dotnet --version'
                     }
                 }
