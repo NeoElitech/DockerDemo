@@ -4,7 +4,7 @@ node {
     }
     stage('Build') {
         docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
-            powershell 'ECHO HELLO>1.txt'
+            dir
         }
     }
 }
