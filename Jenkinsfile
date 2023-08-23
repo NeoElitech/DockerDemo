@@ -1,15 +1,16 @@
 node {
+    def imageName = "sdk.4.8.1:latest"
     stage('Clone') {
-        checkout scm
+        powershell "git clone https://github.com/khellang/Scrutor.git"
     }
     stage('Build') {
-        docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
-            powershell "dotnet build ./Mach5-ASW/Sources/CCA.Calculation.sln -c Release --force"
+        docker.image(imageName).inside {
+            powershell "dotnet build ./Scrutor/Scrutor.sln -c Release --force"
         }
     }
     stage('Test') {
-        docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
-            powershell "dotnet test ./Mach5-ASW/Sources/_test/CCA.Calculation/Release/ELITech.Specs.CCA.Calculation.dll --logger 'trx;LogFilePrefix=ts'"
+        docker.image(imageName).inside {
+            powershell "dotnet test ./Scrutor/Scrutor.sln --logger 'trx;LogFilePrefix=ts'"
         }
     }
 }
