@@ -2,11 +2,11 @@ node {
     try {
         def dockerImage = "sdk.4.8.1:latest"
         stage('Clone') {
-            powershell "git clone 'https://github.com/simpleinjector/SimpleInjector.git'"
+            powershell "git clone https://github.com/simpleinjector/SimpleInjector.git"
         }
         stage('Build') {
             docker.image(dockerImage).inside {
-                powershell "dotnet build './SimpleInjector/src/SimpleInjector.sln' -c Release --force"
+                powershell "dotnet build ./SimpleInjector/src/SimpleInjector.sln -c Release --force"
             }
         }
         stage('Test') {
