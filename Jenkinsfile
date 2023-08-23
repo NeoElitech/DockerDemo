@@ -4,7 +4,7 @@ node {
     }
     stage('Build') {
         docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
-            powershell "dotnet build Mach5-ASW/Sources/Framework.Time.sln"
+            powershell "dotnet add package MSBuildTasks --version 1.5.0.235"
         }
     }
 }
