@@ -16,6 +16,6 @@ node {
         }
     }
     finally {
-        cleanWs()
+        
     }
 }
