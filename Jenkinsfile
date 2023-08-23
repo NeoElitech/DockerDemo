@@ -6,6 +6,7 @@ node {
         }
         stage('Build') {
             docker.image(dockerImage).inside {
+                powershell "Get-Content C:/ELITech/DevHub/Scripts/BuildSolution.ps1"
                 powershell script: "C:/ELITech/DevHub/Scripts/BuildSolution.ps1 -SolutionPath './DecoratorDemo/DecoratorDemoApp.sln' "
             }
         }
