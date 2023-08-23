@@ -6,12 +6,12 @@ node {
         }
         stage('Build') {
             docker.image(imageName).inside {
-                powershell "dotnet build ./src/SimpleInjector.sln -c Release --force"
+                powershell "dotnet build ./SimpleInjector/src/SimpleInjector.sln -c Release --force"
             }
         }
         stage('Test') {
             docker.image(imageName).inside {
-                powershell "dotnet test ./src/SimpleInjector.sln --logger 'trx;LogFilePrefix=ts' -f net461"
+                powershell "dotnet test ./SimpleInjector/src/SimpleInjector.sln --logger 'trx;LogFilePrefix=ts' -f net461"
             }
         }
     }
