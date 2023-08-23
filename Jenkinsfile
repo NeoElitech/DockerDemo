@@ -6,8 +6,7 @@ node {
         }
         stage('Build') {
             docker.image(dockerImage).inside {
-                powershell script: "dotnet msbuild -h"
-                println powershell(script: """C:/ELITech/DevHub/Scripts/BuildSolution.ps1 -SolutionPath "./DecoratorDemo/DecoratorDemoApp.sln" """, returnStdout: true)
+                powershell script: "C:/ELITech/DevHub/Scripts/BuildSolution.ps1 -SolutionPath './DecoratorDemo/DecoratorDemoApp.sln' "
             }
         }
     }
