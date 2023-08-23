@@ -4,6 +4,7 @@ node {
         stage('Clone') {
         }
         stage('Build') {
+            powershell script: """Get-ChildItem env:"""
             docker.image(dockerImage).inside {
                 powershell script: """C:/ELITech/DevHub/Scripts/BuildSolution.ps1 -SolutionPath "Hello" """
             }
