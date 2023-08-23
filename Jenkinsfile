@@ -1,5 +1,5 @@
 node {
-    def imageName = "sdk.4.8.1:latest"
+    def imageName = "sdk.4.8.1:8"
     stage('Clone') {
         powershell "git clone https://github.com/khellang/Scrutor.git"
     }
