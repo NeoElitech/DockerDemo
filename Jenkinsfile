@@ -1,6 +1,6 @@
 node {
     stage('Clone') {
-        checkout scm
+        git url: 'https://github.com/ELITechgroup-CS/Mach5-ASW'
     }
     stage('Build') {
         docker.image('mcr.microsoft.com/dotnet/framework/sdk:4.8.1').inside {
