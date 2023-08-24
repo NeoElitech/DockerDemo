@@ -6,7 +6,7 @@ node {
         stage('Build') {
             docker.image(dockerImage).inside {
                 powershell script: "Get-ChildItem Env:*"
-                powershell script: "Get-Content -Path ${env.Scrips}"
+                powershell script: "Get-Content -Path ${env.Scrips}/BuildSolution.ps1"
                 powershell script: "${env.Scrips}/BuildSolution.ps1 -SolutionPath './DecoratorDemo/DecoratorDemoApp.sln' "
             }
         }
